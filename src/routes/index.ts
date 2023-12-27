@@ -1,18 +1,29 @@
 import express from 'express';
-import PortfolioController from './controllers/PortfolioController';
-import TransactionController from './controllers/TransactionController';
+import { body } from "express-validator";
+import { authMiddleware } from "./middlewares/auth";
+import PortfolioController from './controllers/portfolioController';
+import TransactionController from './controllers/transactionController';
+import MainController from './controllers/mainController';
 
+const ONBOARDING_RULES = [body('email').isEmail(), body('password').isLength({ min: 6 })];
+const SIGNIN_RULES = [body('email').isEmail(), body('password').exists()];
+
+const baseRouter = express.Router();
 const portfolioRouter = express.Router();
 const transactionRouter = express.Router();
 
-// Rutas del portafolios
+portfolioRouter.use(authMiddleware);
+transactionRouter.use(authMiddleware);
+
+baseRouter.post("/onboarding", ONBOARDING_RULES, MainController.createUser);
+baseRouter.post("/signin", SIGNIN_RULES, MainController.authenticateUser);
+
 portfolioRouter.post('/', PortfolioController.addAssetHolding);
 portfolioRouter.put('/:asset', PortfolioController.updateAssetHolding);
 portfolioRouter.delete('/:asset', PortfolioController.removeAssetHolding);
 portfolioRouter.get('/', PortfolioController.getPortfolioHoldings);
 
-// Rutas de transacciones
 transactionRouter.post('/buy', TransactionController.buyAsset);
 transactionRouter.post('/sell', TransactionController.sellAsset);
 
-export { portfolioRouter, transactionRouter };
+export { portfolioRouter, transactionRouter, baseRouter };

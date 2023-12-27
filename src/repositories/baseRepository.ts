@@ -1,4 +1,4 @@
-import { Db, Document, ObjectId } from 'mongodb';
+import { Collection, Db, Document, ObjectId } from 'mongodb';
 import BaseModel from "../models/base";
 import { getDb } from "../config";
 
@@ -9,6 +9,10 @@ class BaseRepository<T extends BaseModel> {
   constructor(collectionName: string) {
     this.db = getDb();
     this.collectionName = collectionName;
+  }
+
+  getCollection(): Collection<Document> {
+    return this.db.collection(this.collectionName);
   }
 
   async create(item: T): Promise<void> {

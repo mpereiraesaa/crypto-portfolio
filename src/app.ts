@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
-import { portfolioRouter, transactionRouter } from './routes';
+import { portfolioRouter, transactionRouter, baseRouter } from './routes';
 import { BASE_LIMITS, TRANSACTION_LIMITS } from "./rateLimits";
 import { connectToDatabase } from "./config";
 
@@ -12,6 +12,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
+app.use('/', BASE_LIMITS, baseRouter);
 app.use('/api/portfolio', BASE_LIMITS, portfolioRouter);
 app.use('/api/transactions', TRANSACTION_LIMITS, transactionRouter);
 
