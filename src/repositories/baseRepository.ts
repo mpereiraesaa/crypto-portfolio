@@ -1,4 +1,4 @@
-import { Collection, Db, Document, ObjectId } from 'mongodb';
+import { Collection, Db, Document, Filter, ObjectId } from 'mongodb';
 import BaseModel from "../models/base";
 import { getDb } from "../config";
 
@@ -28,10 +28,9 @@ class BaseRepository<T extends BaseModel> {
     await collection.updateOne({ _id: new ObjectId(id) }, { $set: item });
   }
 
-  async getAll(): Promise<Document[]> {
+  async delete(filter: Filter<Document>): Promise<void> {
     const collection = this.db.collection(this.collectionName);
-    const data = await collection.find().toArray();
-    return data;
+    await collection.deleteOne(filter);
   }
 }
 

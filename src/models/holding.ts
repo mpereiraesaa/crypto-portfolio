@@ -2,7 +2,7 @@ import BaseModel from "./base";
 
 interface Holding extends BaseModel {
     userId: string;
-    assetId: string;
+    asset: string;
     quantity: number;
 }
 

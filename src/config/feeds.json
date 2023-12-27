@@ -1,0 +1,554 @@
+[
+    {
+        "contractAddress": "0x01b87e7fF78022A70394d3C6Dd127D0c709e3beA",
+        "decimalPlaces": 9,
+        "name": "UST / USD",
+        "assetName": "Terra USD",
+        "decimals": 8,
+        "baseAsset": "UST"
+    },
+    {
+        "contractAddress": "0x06ce8Be8729B6bA18dD3416E3C223a5d4DB5e755",
+        "decimalPlaces": 6,
+        "name": "SNX / USD",
+        "assetName": "Synthetix Network",
+        "decimals": 8,
+        "baseAsset": "SNX"
+    },
+    {
+        "contractAddress": "0x070f15084600Aceace6D639CDDd0e341975D1e30",
+        "decimalPlaces": 9,
+        "name": "SPELL / USD",
+        "assetName": "Spell Token",
+        "decimals": 8,
+        "baseAsset": "SPELL"
+    },
+    {
+        "contractAddress": "0x0F486F358b3D04AeA6800eFa260e01286d8A50F1",
+        "decimalPlaces": 9,
+        "name": "HBAR / USD",
+        "assetName": "Hedera Hashgraph",
+        "decimals": 8,
+        "baseAsset": "HBAR"
+    },
+    {
+        "contractAddress": "0x0fC3657899693648bbA4dbd2d8b33b82E875105D",
+        "decimalPlaces": 9,
+        "name": "AVAX / USD",
+        "assetName": "Avalanche",
+        "decimals": 8,
+        "baseAsset": "AVAX"
+    },
+    {
+        "contractAddress": "0x14C3da2f2e6Ca4FC76408156A8F43d2975c74de8",
+        "decimalPlaces": null,
+        "name": "APE / USD",
+        "assetName": "APECoin",
+        "decimals": 8,
+        "baseAsset": "APE"
+    },
+    {
+        "contractAddress": "0x18f0112E30769961AF90FDEe0D1c6B27E6d72D92",
+        "decimalPlaces": 9,
+        "name": "MIM / USD",
+        "assetName": "Magic Internet Money",
+        "decimals": 8,
+        "baseAsset": "MIM"
+    },
+    {
+        "contractAddress": "0x1C026C25271c1bFbA95B65c848F734a23eA62D4e",
+        "decimalPlaces": null,
+        "name": "CAKE / USD",
+        "assetName": "Pancakeswap",
+        "decimals": 8,
+        "baseAsset": "CAKE"
+    },
+    {
+        "contractAddress": "0x20807Cf61AD17c31837776fA39847A2Fa1839E81",
+        "decimalPlaces": 3,
+        "name": "LINK / USD",
+        "assetName": "Chainlink",
+        "decimals": 8,
+        "baseAsset": "LINK"
+    },
+    {
+        "contractAddress": "0x27b97a63091d185cE056e1747624b9B92BAAD056",
+        "decimalPlaces": 9,
+        "name": "LUSD / USD",
+        "assetName": "Liquity USD",
+        "decimals": 8,
+        "baseAsset": "LUSD"
+    },
+    {
+        "contractAddress": "0x2Abfc56AaA39be7a946ec39aAC5d452e30614dF1",
+        "decimalPlaces": 9,
+        "name": "RAI / USD",
+        "assetName": "RAI Reflex Index",
+        "decimals": 8,
+        "baseAsset": "RAI"
+    },
+    {
+        "contractAddress": "0x33CCa8E7420114dB103d61bd39A72ff65E46352D",
+        "decimalPlaces": 9,
+        "name": "DOGE / USD",
+        "assetName": "Dogecoin",
+        "decimals": 8,
+        "baseAsset": "DOGE"
+    },
+    {
+        "contractAddress": "0x373BCe97bec13BfA8A5f07Cc578EC2D77f80c589",
+        "decimalPlaces": 9,
+        "name": "UNI / USD",
+        "assetName": "Uniswap",
+        "decimals": 8,
+        "baseAsset": "UNI"
+    },
+    {
+        "contractAddress": "0x3CF055335b521863A62fB4374972560e3e55a193",
+        "decimalPlaces": 9,
+        "name": "SUSHI / USD",
+        "assetName": "Sushi",
+        "decimals": 8,
+        "baseAsset": "SUSHI"
+    },
+    {
+        "contractAddress": "0x3f00247Dc3bc14A8dCfA682318Ce566b1f34343A",
+        "decimalPlaces": null,
+        "name": "IMX / USD",
+        "assetName": "Immutable X",
+        "decimals": 8,
+        "baseAsset": "IMX"
+    },
+    {
+        "contractAddress": "0x478238a1c8B862498c74D0647329Aef9ea6819Ed",
+        "decimalPlaces": 6,
+        "name": "DAI / USD",
+        "assetName": "DAI",
+        "decimals": 8,
+        "baseAsset": "DAI"
+    },
+    {
+        "contractAddress": "0x4B35F7854e1fd8291f4EC714aC3EBB1DeA450585",
+        "decimalPlaces": 9,
+        "name": "MATIC / USD",
+        "assetName": "Polygon (MATIC)",
+        "decimals": 8,
+        "baseAsset": "MATIC"
+    },
+    {
+        "contractAddress": "0x4Dde220fF2690A350b0Ea9404F35C8f3Ad012584",
+        "decimalPlaces": 9,
+        "name": "ZRX / USD",
+        "assetName": "0x",
+        "decimals": 8,
+        "baseAsset": "ZRX"
+    },
+    {
+        "contractAddress": "0x589a85FC02EB6bB86D1c84c1a75abbB012C661De",
+        "decimalPlaces": null,
+        "name": "USDD / USD",
+        "assetName": "USDD",
+        "decimals": 8,
+        "baseAsset": "USDD"
+    },
+    {
+        "contractAddress": "0x5Df960959De45A2BA9DC11e6fD6F77107F43256C",
+        "decimalPlaces": null,
+        "name": "RPL / USD",
+        "assetName": "Rocket Pool",
+        "decimals": 8,
+        "baseAsset": "RPL"
+    },
+    {
+        "contractAddress": "0x60128Ad1eC1A26e338054c7C763b170351355FBD",
+        "decimalPlaces": null,
+        "name": "PYUSD / USD",
+        "assetName": "PayPal USD",
+        "decimals": 8,
+        "baseAsset": "PYUSD"
+    },
+    {
+        "contractAddress": "0x61eB091ea16A32ea5B880d0b3D09d518c340D750",
+        "decimalPlaces": 9,
+        "name": "FRAX / USD",
+        "assetName": "FRAX",
+        "decimals": 8,
+        "baseAsset": "FRAX"
+    },
+    {
+        "contractAddress": "0x64d2E1F01A19762dDEE27b1062CC092B66Ff9652",
+        "decimalPlaces": 6,
+        "name": "COMP / USD",
+        "assetName": "Compound",
+        "decimals": 8,
+        "baseAsset": "COMP"
+    },
+    {
+        "contractAddress": "0x69Ad141613e9A3df3cEB3541884F71B36A25Db3A",
+        "decimalPlaces": null,
+        "name": "RDNT / USD",
+        "assetName": "Radiant Capital",
+        "decimals": 8,
+        "baseAsset": "RDNT"
+    },
+    {
+        "contractAddress": "0x6A0cCCA35f6ca00146547B949233C63441B34d7a",
+        "decimalPlaces": 9,
+        "name": "DYDX / USD",
+        "assetName": "dYdX",
+        "decimals": 8,
+        "baseAsset": "DYDX"
+    },
+    {
+        "contractAddress": "0x6a805f2580b8D75d40331c26C074c2c42961E7F2",
+        "decimalPlaces": 9,
+        "name": "GUSD / USD",
+        "assetName": "Gemini Dollar",
+        "decimals": 8,
+        "baseAsset": "GUSD"
+    },
+    {
+        "contractAddress": "0x71Febc2F741F113af322e1B576eF005A4424574F",
+        "decimalPlaces": 9,
+        "name": "MKR / USD",
+        "assetName": "Maker",
+        "decimals": 8,
+        "baseAsset": "MKR"
+    },
+    {
+        "contractAddress": "0x73455B8aCd6d205544cbC034a6f6cAB58c56ef47",
+        "decimalPlaces": null,
+        "name": "STG / USD",
+        "assetName": "Stargate Finance",
+        "decimals": 8,
+        "baseAsset": "STG"
+    },
+    {
+        "contractAddress": "0x73dc1b226f7DfAc353bdB41A27C4212213e6aF07",
+        "decimalPlaces": 9,
+        "name": "BUSD / USD",
+        "assetName": "Binance USD",
+        "decimals": 8,
+        "baseAsset": "BUSD"
+    },
+    {
+        "contractAddress": "0x780f1bD91a5a22Ede36d4B2b2c0EcCB9b1726a28",
+        "decimalPlaces": null,
+        "name": "ENS / USD",
+        "assetName": "Ethereum Name Service",
+        "decimals": 8,
+        "baseAsset": "ENS"
+    },
+    {
+        "contractAddress": "0x789190466E21a8b78b8027866CBBDc151542A26C",
+        "decimalPlaces": 9,
+        "name": "USDC / USD",
+        "assetName": "Circle USD",
+        "decimals": 8,
+        "baseAsset": "USDC"
+    },
+    {
+        "contractAddress": "0x8116B273cD75d79C382aFacc706659DEd5E0a59d",
+        "decimalPlaces": 9,
+        "name": "AAVE / USD",
+        "assetName": "Aave",
+        "decimals": 8,
+        "baseAsset": "AAVE"
+    },
+    {
+        "contractAddress": "0x8d73Ac44Bf11CadCDc050BB2BcCaE8c519555f1a",
+        "decimalPlaces": 9,
+        "name": "CVX / USD",
+        "assetName": "Convex Finance",
+        "decimals": 8,
+        "baseAsset": "CVX"
+    },
+    {
+        "contractAddress": "0x920E5DC12E7500c6571C63D4Bba19c62e99d6883",
+        "decimalPlaces": 9,
+        "name": "EURT / USD",
+        "assetName": "Tether Euro",
+        "decimals": 8,
+        "baseAsset": "EURT"
+    },
+    {
+        "contractAddress": "0x9257D83A0DdA413cA24F66dD32A056Bc2eBAFd2e",
+        "decimalPlaces": 9,
+        "name": "Total Marketcap / USD",
+        "assetName": "Total cryptocurrency market cap",
+        "decimals": 8,
+        "baseAsset": "Total_Marketcap"
+    },
+    {
+        "contractAddress": "0x953DA51613067981ff15695695994DD8B1310F6d",
+        "decimalPlaces": 9,
+        "name": "APY TVL",
+        "assetName": "APY",
+        "decimals": 8,
+        "baseAsset": null
+    },
+    {
+        "contractAddress": "0x98953e9C76573e06ec265Bdde1dbB89fa02d56d3",
+        "decimalPlaces": 9,
+        "name": "TUSD / USD",
+        "assetName": "True USD",
+        "decimals": 8,
+        "baseAsset": "TUSD"
+    },
+    {
+        "contractAddress": "0x98E3F1BE8E0609Ac8a7681f23e15B696F8e8204d",
+        "decimalPlaces": 9,
+        "name": "BAT / USD",
+        "assetName": "Basic Attention Token",
+        "decimals": 8,
+        "baseAsset": "BAT"
+    },
+    {
+        "contractAddress": "0x9d78092775DFE715dFe1b0d71aC1a4d6e3652559",
+        "decimalPlaces": 9,
+        "name": "FXS / USD",
+        "assetName": "Frax Share",
+        "decimals": 8,
+        "baseAsset": "FXS"
+    },
+    {
+        "contractAddress": "0xA122f84935477142295F7451513e502D49316285",
+        "decimalPlaces": 9,
+        "name": "DPI / USD",
+        "assetName": "DefiPulse Index",
+        "decimals": 8,
+        "baseAsset": "DPI"
+    },
+    {
+        "contractAddress": "0xA27CfD69345a6e121284a3C0ae07BB64b707cDD2",
+        "decimalPlaces": 9,
+        "name": "RSR / USD",
+        "assetName": "Reserve Rights",
+        "decimals": 8,
+        "baseAsset": "RSR"
+    },
+    {
+        "contractAddress": "0xA6FA156482a3028846c886Fcc94cA8ec607187B4",
+        "decimalPlaces": 9,
+        "name": "GRT / USD",
+        "assetName": "The Graph",
+        "decimals": 8,
+        "baseAsset": "GRT"
+    },
+    {
+        "contractAddress": "0xAC28f6D70c6C6d5089e506eFb80624B8ECb666F8",
+        "decimalPlaces": 9,
+        "name": "CV / Index",
+        "assetName": "Crypto Volatility Index",
+        "decimals": 18,
+        "baseAsset": null
+    },
+    {
+        "contractAddress": "0xAcD3657b1D552623992aea368D9192C780B9d441",
+        "decimalPlaces": 9,
+        "name": "PERP / USD",
+        "assetName": "Perpetual Protocol",
+        "decimals": 8,
+        "baseAsset": "PERP"
+    },
+    {
+        "contractAddress": "0xBCFEbD504ec678b9316842C01CA295a03eC2bC85",
+        "decimalPlaces": 9,
+        "name": "ANKR / USD",
+        "assetName": "Ankr",
+        "decimals": 8,
+        "baseAsset": "ANKR"
+    },
+    {
+        "contractAddress": "0xC45eBD0F901bA6B2B8C7e70b717778f055eF5E6D",
+        "decimalPlaces": 6,
+        "name": "BNB / USD",
+        "assetName": "BNB",
+        "decimals": 8,
+        "baseAsset": "BNB"
+    },
+    {
+        "contractAddress": "0xCFC1C64e721bC034ab894302B78149b3C7a1066d",
+        "decimalPlaces": 6,
+        "name": "SXP / USD",
+        "assetName": "Swipe",
+        "decimals": 8,
+        "baseAsset": "SXP"
+    },
+    {
+        "contractAddress": "0xD6A3a9Bb4bd49DdB2374CA58Edf47a8bB63Af3d2",
+        "decimalPlaces": null,
+        "name": "XCN / USD",
+        "assetName": "Chain",
+        "decimals": 8,
+        "baseAsset": "XCN"
+    },
+    {
+        "contractAddress": "0xDF627aa5B9C024818c6950fDAD7e4C16D93b10Ca",
+        "decimalPlaces": 9,
+        "name": "SAND / USD",
+        "assetName": "The Sandbox",
+        "decimals": 8,
+        "baseAsset": "SAND"
+    },
+    {
+        "contractAddress": "0xDb4fEDd5b8FD533f18034610C207712Ce5dcfbfd",
+        "decimalPlaces": null,
+        "name": "ARB / USD",
+        "assetName": "Arbitrum",
+        "decimals": 8,
+        "baseAsset": "ARB"
+    },
+    {
+        "contractAddress": "0xDf30249744A419891f822ea4a9E80cd76d7Fbd23",
+        "decimalPlaces": 9,
+        "name": "SOL / USD",
+        "assetName": "Solana",
+        "decimals": 8,
+        "baseAsset": "SOL"
+    },
+    {
+        "contractAddress": "0xE62B71cf983019BFf55bC83B48601ce8419650CC",
+        "decimalPlaces": 3,
+        "name": "ETH / USD",
+        "assetName": "Ethereum",
+        "decimals": 8,
+        "baseAsset": "ETH"
+    },
+    {
+        "contractAddress": "0xF3d70857B489Ecc6768D0982B773E1Cba9E1f00b",
+        "decimalPlaces": 9,
+        "name": "USDP / USD",
+        "assetName": "Pax Dollar",
+        "decimals": 8,
+        "baseAsset": "USDP"
+    },
+    {
+        "contractAddress": "0xFe3d09D8bAd5DA65E0160cF0cB53F6115Fb6EA8b",
+        "decimalPlaces": 6,
+        "name": "LTC / USD",
+        "assetName": "Litecoin",
+        "decimals": 8,
+        "baseAsset": "LTC"
+    },
+    {
+        "contractAddress": "0xa964273552C1dBa201f5f000215F5BD5576e8f93",
+        "decimalPlaces": 9,
+        "name": "USDT / USD",
+        "assetName": "Tether USD",
+        "decimals": 8,
+        "baseAsset": "USDT"
+    },
+    {
+        "contractAddress": "0xb4c4a493AB6356497713A78FFA6c60FB53517c63",
+        "decimalPlaces": 9,
+        "name": "CRV / USD",
+        "assetName": "Curve DAO",
+        "decimals": 8,
+        "baseAsset": "CRV"
+    },
+    {
+        "contractAddress": "0xbC3C868763b7C15d0ce527af455041919E9c07B1",
+        "decimalPlaces": 6,
+        "name": "ADA / USD",
+        "assetName": "Cardano",
+        "decimals": 8,
+        "baseAsset": "ADA"
+    },
+    {
+        "contractAddress": "0xbC60258F775683eA28048030806Ad3A80c4A33Ae",
+        "decimalPlaces": 6,
+        "name": "KNC / USD",
+        "assetName": "Kyber Network",
+        "decimals": 8,
+        "baseAsset": "KNC"
+    },
+    {
+        "contractAddress": "0xbD05823Efac9A1CcC612c00A6bf51Cc84930126a",
+        "decimalPlaces": null,
+        "name": "HIGH / USD",
+        "assetName": "Highstreet",
+        "decimals": 8,
+        "baseAsset": "HIGH"
+    },
+    {
+        "contractAddress": "0xbE4274DfB7801948e2cc2a913744e9498dDC8d20",
+        "decimalPlaces": 9,
+        "name": "DOT / USD",
+        "assetName": "Polkadot",
+        "decimals": 8,
+        "baseAsset": "DOT"
+    },
+    {
+        "contractAddress": "0xbd9350a3a2fd6e3Ad0a053a567f2609a1bf6c505",
+        "decimalPlaces": 9,
+        "name": "BAL / USD",
+        "assetName": "Balancer",
+        "decimals": 8,
+        "baseAsset": "BAL"
+    },
+    {
+        "contractAddress": "0xc29d104A418a08407f9f2CDb614c1CDCf82986e0",
+        "decimalPlaces": 9,
+        "name": "WING / USD",
+        "assetName": "Wing Finance",
+        "decimals": 8,
+        "baseAsset": "WING"
+    },
+    {
+        "contractAddress": "0xcac109af977AC94929A5dD37ed8Af763BAD78151",
+        "decimalPlaces": 9,
+        "name": "YFI / USD",
+        "assetName": "Yearn Finance",
+        "decimals": 8,
+        "baseAsset": "YFI"
+    },
+    {
+        "contractAddress": "0xd2bdD1E01fd2F8d7d42b209c111c7b32158b5a42",
+        "decimalPlaces": 9,
+        "name": "1INCH / USD",
+        "assetName": "1inch",
+        "decimals": 8,
+        "baseAsset": "1INCH"
+    },
+    {
+        "contractAddress": "0xd5090674b4653240cd94eE886484ca808c6E6694",
+        "decimalPlaces": 3,
+        "name": "AMPL / USD",
+        "assetName": "Ampleforth",
+        "decimals": 18,
+        "baseAsset": "AMPL"
+    },
+    {
+        "contractAddress": "0xd57a242FB40ED4526083B6fA05238B3d57f78D45",
+        "decimalPlaces": null,
+        "name": "FDUSD / USD",
+        "assetName": "First Digital USD",
+        "decimals": 8,
+        "baseAsset": "FDUSD"
+    },
+    {
+        "contractAddress": "0xdA31bc2B08F22AE24aeD5F6EB1E71E96867BA196",
+        "decimalPlaces": 9,
+        "name": "STETH / USD",
+        "assetName": "Lido Staked ETH",
+        "decimals": 8,
+        "baseAsset": "STETH"
+    },
+    {
+        "contractAddress": "0xdBe1941BFbe4410D6865b9b7078e0b49af144D2d",
+        "decimalPlaces": 3,
+        "name": "BTC / USD",
+        "assetName": "Bitcoin",
+        "decimals": 8,
+        "baseAsset": "BTC"
+    },
+    {
+        "contractAddress": "0xdEaa4288c85e7e0be40BCE49E76D4e321d20fC36",
+        "decimalPlaces": 9,
+        "name": "Calculated XSUSHI / ETH",
+        "assetName": "Calculated xSushi",
+        "decimals": 18,
+        "baseAsset": "XSUSHI"
+    }
+]

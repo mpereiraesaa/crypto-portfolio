@@ -5,7 +5,7 @@ import UserRepository from '../repositories/userRepository';
 const JWT_SECRET = process.env.JWT_SECRET || "TEST";
 const JWT_EXPIRATION = process.env.JWT_EXPIRATION || "1h";
 
-export default class MainService {
+class MainService {
   private userRepository: UserRepository;
 
   constructor() {
@@ -27,3 +27,5 @@ export default class MainService {
     return token;
   }
 }
+
+export const mainService = new MainService();
