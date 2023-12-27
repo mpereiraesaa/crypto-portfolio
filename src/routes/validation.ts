@@ -11,10 +11,16 @@ const ADD_ASSET_HOLDING_RULES = [body('asset').custom(isValidAsset), body("quant
 const UPDATE_ASSET_HOLDING_RULES = [param('asset').custom(isValidAsset), body("quantity").isNumeric()];
 const REMOVE_ASSET_HOLDING_RULES = [param('asset').custom(isValidAsset)]
 
+const TRANSACTION_VALIDATION_RULES = [
+  body('buyAsset').not().isEmpty(),
+  body('sellAsset').not().isEmpty()
+];
+
 export {
   ONBOARDING_RULES,
   SIGNIN_RULES,
   ADD_ASSET_HOLDING_RULES,
   UPDATE_ASSET_HOLDING_RULES,
-  REMOVE_ASSET_HOLDING_RULES
+  REMOVE_ASSET_HOLDING_RULES,
+  TRANSACTION_VALIDATION_RULES
 }
