@@ -1,5 +1,29 @@
 version: '3.1'
+
 services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      WEB3_RPC_URL: https://eth-mainnet.g.alchemy.com/v2/RZGrjyHN23ikZBA82XMxEpuxB5jAQS39
+      MONGODB_URI: mongodb://root:example@mongo:27017
+      DB_NAME: OPSIN
+      PORT: 3000
+      JWT_SECRET: OPSIN
+      JWT_EXPIRATION: 1h
+      TRANSACTION_WINDOW_MAX: 2
+      TRANSACTION_WINDOW: 1000
+      BASE_WINDOW: 1000
+      BASE_WINDOW_MAX: 5
+    depends_on:
+      - mongo
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - app-network
+
   mongo:
     image: mongo
     ports:
@@ -7,3 +31,14 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:
+    driver: bridge
