@@ -52,7 +52,7 @@ databaseConnection()
             transactionsController
         );
 
-        app.use("/", BASE_LIMITS, baseRouter);
+        app.use("/api/user", BASE_LIMITS, baseRouter);
         app.use("/api/portfolio", BASE_LIMITS, portfolioRouter);
         app.use("/api/transactions", TRANSACTION_LIMITS, transactionRouter);
 

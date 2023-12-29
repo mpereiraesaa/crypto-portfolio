@@ -31,34 +31,34 @@ This command builds the Docker images and starts the services defined in the `do
 
 ### User Management
 1. **User Onboarding (Registration):**
-- **Endpoint:** `POST /onboarding`
+- **Endpoint:** `POST /api/user/onboarding`
 - **Description:** Register a new user. The password must be at least 6 characters long.
 - **Payload:** `{ "email": "user@example.com", "password": "yourpassword" }`
 - **Example:**
   ```sh
-  curl -X POST http://localhost:3000/onboarding \
+  curl -X POST http://localhost:3000/api/user/onboarding \
   -H "Content-Type: application/json" \
   -d '{"email": "user@example.com", "password": "yourpassword"}'
   ```
 
 2. **User Sign-In:**
-- **Endpoint:** `POST /sign-in`
+- **Endpoint:** `POST /api/user/sign-in`
 - **Description:** Authenticate an existing user and retrieve a JWT token.
 - **Payload:** `{ "email": "user@example.com", "password": "123456" }`
 - **Example:**
   ```sh
-  curl -X POST http://localhost:3000/sign-in \
+  curl -X POST http://localhost:3000/api/user/sign-in \
   -H "Content-Type: application/json" \
   -d '{"email": "user@example.com", "password": "123456"}'
   ```
 
 ### Portfolio Management
 1. **Currently supported assets:**
-- **Endpoint:** `GET /supported-assets`
+- **Endpoint:** `GET /api/portfolio/supported-assets`
 - **Description:** Retrieves a list of supported assets that can be managed by the application.
 - **Example:**
   ```sh
-  curl -X GET http://localhost:3000/supported-assets
+  curl -X GET http://localhost:3000/api/portfolio/supported-assets
   ```
 
 2. **Add Asset to Portfolio:**
