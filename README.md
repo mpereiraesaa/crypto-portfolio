@@ -3,6 +3,9 @@
 ## Description
 Crypto Portfolio Manager is a backend service for managing a cryptocurrency portfolio. It allows users to manage their cryptocurrency holdings, simulate transactions, and view supported assets.
 
+## TODO
+1. Implement memory caching.
+2. Allow setting custom quote cryptocurrency.
 ## Setup Instructions
 
 ### Prerequisites
@@ -29,6 +32,10 @@ This command builds the Docker images and starts the services defined in the `do
 
 ## API Endpoints and Usage
 
+### Swagger docs
+
+You can visit UI API documentation browsing the following endpoint `http://localhost:3000/api-docs/`
+
 ### User Management
 1. **User Onboarding (Registration):**
 - **Endpoint:** `POST /api/user/onboarding`
@@ -54,11 +61,11 @@ This command builds the Docker images and starts the services defined in the `do
 
 ### Portfolio Management
 1. **Currently supported assets:**
-- **Endpoint:** `GET /api/portfolio/supported-assets`
+- **Endpoint:** `GET /info/supported-assets`
 - **Description:** Retrieves a list of supported assets that can be managed by the application.
 - **Example:**
   ```sh
-  curl -X GET http://localhost:3000/api/portfolio/supported-assets
+  curl -X GET http://localhost:3000/info/supported-assets
   ```
 
 2. **Add Asset to Portfolio:**

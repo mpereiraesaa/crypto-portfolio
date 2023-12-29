@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction } from "express";
+import swaggerUi from 'swagger-ui-express';
 import helmet from "helmet";
 import cors from "cors";
 import UserRepository from "./repositories/userRepository";
@@ -15,6 +16,7 @@ import { BASE_LIMITS, TRANSACTION_LIMITS } from "./rateLimits";
 import { databaseConnection, web3Connection } from "./config";
 import PriceOracleHandler from "./contracts/price";
 import UniswapHandler from "./contracts/uniswap";
+import { swaggerSpec } from "./swagger";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -52,7 +54,9 @@ databaseConnection()
             transactionsController
         );
 
-        app.use("/api/user", BASE_LIMITS, baseRouter);
+        app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+        app.use("/api", BASE_LIMITS, baseRouter);
         app.use("/api/portfolio", BASE_LIMITS, portfolioRouter);
         app.use("/api/transactions", TRANSACTION_LIMITS, transactionRouter);
 

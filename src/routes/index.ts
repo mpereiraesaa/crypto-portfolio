@@ -24,9 +24,9 @@ export const setupRoutes = (
     portfolioRouter.use(authMiddleware);
     transactionRouter.use(authMiddleware);
 
-    baseRouter.post("/onboarding", ONBOARDING_RULES, mainController.createUser);
-    baseRouter.post("/sign-in", SIGNIN_RULES, mainController.authenticateUser);
-    baseRouter.get("/supported-assets", holdingsController.getSupportedAssets);
+    baseRouter.post("/user/onboarding", ONBOARDING_RULES, mainController.createUser);
+    baseRouter.post("/user/sign-in", SIGNIN_RULES, mainController.authenticateUser);
+    baseRouter.get("/info/supported-assets", holdingsController.getSupportedAssets);
     
     portfolioRouter.post("/", ADD_ASSET_HOLDING_RULES, holdingsController.addAssetHolding);
     portfolioRouter.put("/:asset", UPDATE_ASSET_HOLDING_RULES, holdingsController.updateAssetHolding);
