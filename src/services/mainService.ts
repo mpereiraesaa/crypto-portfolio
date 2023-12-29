@@ -20,7 +20,7 @@ class MainService {
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await this.userRepository.create({ email, password: hashedPassword });
-    const token = jwt.sign({ userId: user._id.toString() }, JWT_SECRET, { expiresIn: JWT_EXPIRATION });
+    const token = jwt.sign({ userId: user.insertedId.toString() }, JWT_SECRET, { expiresIn: JWT_EXPIRATION });
     return token;
   }
 

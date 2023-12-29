@@ -12,7 +12,7 @@ Crypto Portfolio Manager is a backend service for managing a cryptocurrency port
 ### Getting Started
 1. **Clone the repository:**
 ```sh
-git clone [your-repository-url]
+git clone git@github.com:mpereiraesaa/crypto-portfolio.git
 ```
 
 2. **Navigate to the project directory:**
@@ -32,7 +32,7 @@ This command builds the Docker images and starts the services defined in the `do
 ### User Management
 1. **User Onboarding (Registration):**
 - **Endpoint:** `POST /onboarding`
-- **Description:** Register a new user.
+- **Description:** Register a new user. The password must be at least 6 characters long.
 - **Payload:** `{ "email": "user@example.com", "password": "yourpassword" }`
 - **Example:**
   ```sh
@@ -63,7 +63,7 @@ This command builds the Docker images and starts the services defined in the `do
 
 2. **Add Asset to Portfolio:**
 - **Endpoint:** `POST /api/portfolio`
-- **Description:** Add a new cryptocurrency to the user's portfolio.
+- **Description:** Add a new cryptocurrency to the user's portfolio. The asset must be a supported asset by the platform.
 - **Payload:** `{ "asset": "BTC", "quantity": 1.5 }`
 - **Headers:** Authorization: Bearer [JWT Token]
 - **Example:**
@@ -110,7 +110,7 @@ This command builds the Docker images and starts the services defined in the `do
 ### Transaction Simulation
 1. **Place a Transaction:**
 - **Endpoint:** `POST /api/transactions/place-transaction`
-- **Description:** Simulate buy/sell transactions of cryptocurrencies.
+- **Description:** Simulate buy/sell transactions of cryptocurrencies. The `type` can be either "buy" or "sell". You must have enough funds of the asset that you are selling or enough USDC balance if buying another.
 - **Payload:** `{ "type": "sell", "asset": "BTC", "quantity": 0.5 }`
 - **Headers:** Authorization: Bearer [JWT Token]
 - **Example:**
