@@ -1,8 +1,11 @@
 import { body, param, CustomValidator } from "express-validator";
-import { Asset, holdingsService } from "../services/holdingsService";
+import { supportedAssets } from "../config";
+import { Asset } from "../config/types";
 
 const isValidAsset: CustomValidator = (value: string): boolean => {
-  return holdingsService.getSupportedAssets().some((asset: Asset) => asset.baseAsset.toLowerCase() === value.toLowerCase())
+  return supportedAssets().some((asset: Asset) => {
+    return asset.baseAsset.toLowerCase() === value.toLowerCase()
+  })
 };
 
 const ONBOARDING_RULES = [body("email").isEmail(), body("password").isLength({ min: 6 })];
@@ -12,8 +15,9 @@ const UPDATE_ASSET_HOLDING_RULES = [param('asset').custom(isValidAsset), body("q
 const REMOVE_ASSET_HOLDING_RULES = [param('asset').custom(isValidAsset)]
 
 const TRANSACTION_VALIDATION_RULES = [
-  body('buyAsset').not().isEmpty(),
-  body('sellAsset').not().isEmpty()
+  body('type').isIn(["buy", "sell"]),
+  body('asset').custom(isValidAsset),
+  body('quantity').isNumeric()
 ];
 
 export {

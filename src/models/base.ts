@@ -1,8 +1,7 @@
 import { Document } from "mongodb";
 
 interface BaseModel extends Document {
-    createdDate?: Date;
-    updatedDate?: Date;
+    updatedAt?: Date;
 }
 
 export default BaseModel;

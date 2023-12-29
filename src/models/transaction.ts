@@ -2,10 +2,9 @@ import BaseModel from "./base";
 
 interface Transaction extends BaseModel {
     userId: string;
-    buyAsset: string;
-    sellAsset: string;
-    buyAssetAmount: number;
-    sellAssetAmount: number;
+    type: "buy" | "sell";
+    asset: string;
+    quantity: number;
     price: number;
     timestamp: Date;
 }

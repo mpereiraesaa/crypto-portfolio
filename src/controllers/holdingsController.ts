@@ -1,11 +1,17 @@
 import { Request, Response } from "express";
 import { validationResult } from "express-validator";
-import { holdingsService } from "../services/holdingsService";
+import HoldingsService from "../services/holdingsService";
+import { supportedAssets } from "../config";
 
 export class HoldingsController {
-  static async getSupportedAssets(req: Request, res: Response) {
+  holdingsService: HoldingsService;
+
+  constructor(holdingServiceInstance: HoldingsService) {
+    this.holdingsService = holdingServiceInstance;
+  }
+  getSupportedAssets = (req: Request, res: Response) => {
     try {
-      const assets = await holdingsService.getSupportedAssets();
+      const assets = supportedAssets();
       res.status(200).json(assets);
     } catch (error) {
       if (error instanceof Error) {
@@ -15,66 +21,66 @@ export class HoldingsController {
       }
     }
   }
-  static async addAssetHolding(req: Request, res: Response) {
+  addAssetHolding = async (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array() });
     }
 
     try {
-      await holdingsService.addHolding(req.userId, req.body.asset, req.body.quantity);
-      res.status(201).send({ "message": "Holding added", "asset": req.body.asset });
+      await this.holdingsService.addHolding(req.userId, req.body.asset, req.body.quantity);
+      return res.status(201).send({ "message": "Holding added", "asset": req.body.asset });
     } catch (error) {
       if (error instanceof Error) {
-        res.status(500).send(error.message);
+        return res.status(500).send(error.message);
       } else {
-        res.status(500).send("An unknown error occurred");
+        return res.status(500).send("An unknown error occurred");
       }
     }
   }
 
-  static async updateAssetHolding(req: Request, res: Response) {
+  updateAssetHolding = async (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array() });
     }
 
     try {
       const asset = req.params.asset;
-      await holdingsService.updateHolding(req.userId, asset, req.body.quantity);
-      res.status(200).send({ "message": "Holding updated", asset });
+      await this.holdingsService.updateHolding(req.userId, asset, req.body.quantity);
+      return res.status(200).send({ "message": "Holding updated", asset });
     } catch (error) {
       if (error instanceof Error) {
-        res.status(500).send(error.message);
+        return res.status(500).send(error.message);
       } else {
-        res.status(500).send("An unknown error occurred");
+        return res.status(500).send("An unknown error occurred");
       }
     }
   }
 
-  static async removeAssetHolding(req: Request, res: Response) {
+  removeAssetHolding = async (req: Request, res: Response) => {
     try {
       const asset = req.params.asset;
-      await holdingsService.removeHolding(req.userId, asset);
-      res.status(200).send({ "message": "Holding removed" });
+      await this.holdingsService.removeHolding(req.userId, asset);
+      return res.status(200).send({ "message": "Holding removed" });
     } catch (error) {
       if (error instanceof Error) {
-        res.status(500).send(error.message);
+        return res.status(500).send(error.message);
       } else {
-        res.status(500).send("An unknown error occurred");
+        return res.status(500).send("An unknown error occurred");
       }
     }
   }
 
-  static async getPortfolioHoldings(req: Request, res: Response) {
+  getPortfolioHoldings = async (req: Request, res: Response) => {
     try {
-      const holdings = await holdingsService.getHoldings(req.userId);
-      res.status(200).json(holdings);
+      const holdings = await this.holdingsService.getHoldings(req.userId);
+      return res.status(200).json(holdings);
     } catch (error) {
       if (error instanceof Error) {
-        res.status(500).send(error.message);
+        return res.status(500).send(error.message);
       } else {
-        res.status(500).send("An unknown error occurred");
+        return res.status(500).send("An unknown error occurred");
       }
     }
   }

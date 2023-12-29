@@ -1,50 +1,49 @@
-import path from 'path';
-import fs from 'fs';
 import HoldingRepository from '../repositories/holdingRepository';
 import Holding from '../models/holding';
-
-export interface Asset {
-    assetName: string;
-    baseAsset: string;
-}
+import PriceOracleHandler from '../contracts/price';
 
 class HoldingsService {
     private holdingRepository: HoldingRepository;
-    private supportedAssets: Asset[];
+    private priceOracle: PriceOracleHandler;
 
-    constructor() {
-        this.holdingRepository = new HoldingRepository();
-
-        const filePath = path.join(__dirname, '../config/feeds.json');
-        const data = fs.readFileSync(filePath, 'utf8');
-        const assets = JSON.parse(data) as Asset[];
-        this.supportedAssets = assets.map(({ assetName, baseAsset }) => ({ assetName, baseAsset }));
+    constructor(holdingRepository: HoldingRepository, priceOracle: PriceOracleHandler) {
+        this.holdingRepository = holdingRepository;
+        this.priceOracle = priceOracle;
     }
 
-    getSupportedAssets(): Asset[] {
-        return this.supportedAssets;
+    addHolding = async (userId: string, asset: string, quantity: number): Promise<void> => {
+        const existingHolding = await this.holdingRepository.getUserHolding(userId, asset);
+
+        if (existingHolding) {
+            throw new Error('Holding already exists');
+        } else {
+            const newHolding: Holding = { userId, asset, quantity };
+            await this.holdingRepository.create(newHolding);
+        }
     }
 
-    async addHolding(userId: string, asset: string, quantity: number): Promise<void> {
-        const newHolding: Holding = {
-            userId,
-            asset,
-            quantity
-        };
-        await this.holdingRepository.create(newHolding);
-    }
-
-    async updateHolding(userId: string, asset: string, newQuantity: number): Promise<void> {
+    updateHolding = async (userId: string, asset: string, newQuantity: number): Promise<void> => {
         await this.holdingRepository.updateHolding(userId, asset, newQuantity);
     }
 
-    async removeHolding(userId: string, asset: string): Promise<void> {
-        await this.holdingRepository.delete({ userId, asset });
+    removeHolding = async (userId: string, asset: string): Promise<void> => {
+        const existingHolding = await this.holdingRepository.getUserHolding(userId, asset);
+
+        if (!existingHolding) {
+            throw new Error('Holding already removed');
+        }
+        await this.holdingRepository.delete({ userId, asset: asset.toUpperCase() });
     }
 
-    async getHoldings(userId: string): Promise<Holding[]> {
-        return this.holdingRepository.getUserHoldings(userId);
+    getHoldings = async (userId: string): Promise<any[]> => {
+        const holdings = await this.holdingRepository.getUserHoldings(userId);
+        const lol = await this.priceOracle.getPrice("BTC");
+        const holdingsWithPrice = await Promise.all(holdings.map(async (holding: Holding) => ({
+            ...holding,
+            price: await this.priceOracle.getPrice(holding.asset),
+        })));
+        return holdingsWithPrice;
     }
 }
 
-export const holdingsService = new HoldingsService();
+export default HoldingsService;

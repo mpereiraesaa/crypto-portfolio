@@ -8,24 +8,31 @@ const JWT_EXPIRATION = process.env.JWT_EXPIRATION || "1h";
 class MainService {
   private userRepository: UserRepository;
 
-  constructor() {
-    this.userRepository = new UserRepository();
+  constructor(userRepository: UserRepository) {
+    this.userRepository = userRepository;
   }
 
-  async createUser(email: string, password: string): Promise<void> {
+  createUser = async (email: string, password: string): Promise<string> => {
+    const existingUser = await this.userRepository.findByEmail(email);
+    if (!!existingUser) {
+      throw new Error('User already exists');
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
-    await this.userRepository.create({ email, password: hashedPassword });
+    const user = await this.userRepository.create({ email, password: hashedPassword });
+    const token = jwt.sign({ userId: user._id.toString() }, JWT_SECRET, { expiresIn: JWT_EXPIRATION });
+    return token;
   }
 
-  async authenticateUser(email: string, password: string): Promise<string> {
+  authenticateUser = async (email: string, password: string): Promise<string> => {
     const user = await this.userRepository.findByEmail(email);
     if (!user || !(await bcrypt.compare(password, user.password))) {
       throw new Error('Invalid credentials');
     }
 
-    const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: JWT_EXPIRATION });
+    const token = jwt.sign({ userId: user._id.toString() }, JWT_SECRET, { expiresIn: JWT_EXPIRATION });
     return token;
   }
 }
 
-export const mainService = new MainService();
+export default MainService;

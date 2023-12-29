@@ -12,22 +12,28 @@ import {
   TRANSACTION_VALIDATION_RULES
 } from "./validation";
 
-const baseRouter = express.Router();
-const portfolioRouter = express.Router();
-const transactionRouter = express.Router();
+export const setupRoutes = (
+  mainController: MainController,
+  holdingsController: HoldingsController,
+  transactionsController: TransactionsController
+  ) => {
+    const baseRouter = express.Router();
+    const portfolioRouter = express.Router();
+    const transactionRouter = express.Router();
 
-portfolioRouter.use(authMiddleware);
-transactionRouter.use(authMiddleware);
+    portfolioRouter.use(authMiddleware);
+    transactionRouter.use(authMiddleware);
 
-baseRouter.post("/onboarding", ONBOARDING_RULES, MainController.createUser);
-baseRouter.post("/signin", SIGNIN_RULES, MainController.authenticateUser);
-baseRouter.get("/supported-assets", HoldingsController.getSupportedAssets);
+    baseRouter.post("/onboarding", ONBOARDING_RULES, mainController.createUser);
+    baseRouter.post("/sign-in", SIGNIN_RULES, mainController.authenticateUser);
+    baseRouter.get("/supported-assets", holdingsController.getSupportedAssets);
+    
+    portfolioRouter.post("/", ADD_ASSET_HOLDING_RULES, holdingsController.addAssetHolding);
+    portfolioRouter.put("/:asset", UPDATE_ASSET_HOLDING_RULES, holdingsController.updateAssetHolding);
+    portfolioRouter.delete("/:asset", REMOVE_ASSET_HOLDING_RULES, holdingsController.removeAssetHolding);
+    portfolioRouter.get("/", holdingsController.getPortfolioHoldings);
+    
+    transactionRouter.post("/place-transaction", TRANSACTION_VALIDATION_RULES, transactionsController.placeTransaction);
 
-portfolioRouter.post("/", ADD_ASSET_HOLDING_RULES, HoldingsController.addAssetHolding);
-portfolioRouter.put("/:asset", UPDATE_ASSET_HOLDING_RULES, HoldingsController.updateAssetHolding);
-portfolioRouter.delete("/:asset", REMOVE_ASSET_HOLDING_RULES, HoldingsController.removeAssetHolding);
-portfolioRouter.get("/", HoldingsController.getPortfolioHoldings);
-
-transactionRouter.post("/transact", TRANSACTION_VALIDATION_RULES, TransactionsController.transactAsset);
-
-export { portfolioRouter, transactionRouter, baseRouter };
+    return { portfolioRouter, transactionRouter, baseRouter };
+};

@@ -1,9 +1,14 @@
 import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
-import { mainService } from '../services/mainService';
+import MainService from '../services/mainService';
 
 export class MainController {
-  static async createUser(req: Request, res: Response) {
+  mainService: MainService;
+
+  constructor(mainServiceInstance: MainService) {
+    this.mainService = mainServiceInstance;
+  }
+  createUser = async (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -11,18 +16,17 @@ export class MainController {
 
     try {
       const { email, password } = req.body;
-      const token = await mainService.createUser(email, password);
-      res.status(201).json({ token });
+      const token = await this.mainService.createUser(email, password);
+      return res.status(201).json({ token });
     } catch (error) {
       if (error instanceof Error) {
-        res.status(500).send(error.message);
+        return res.status(500).send(error.message);
       } else {
-        res.status(500).send('An unknown error occurred');
+        return res.status(500).send('An unknown error occurred');
       }
     }
   }
-
-  static async authenticateUser(req: Request, res: Response) {
+  authenticateUser = async (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -30,13 +34,13 @@ export class MainController {
 
     try {
       const { email, password } = req.body;
-      const token = await mainService.authenticateUser(email, password);
-      res.json({ token });
+      const token = await this.mainService.authenticateUser(email, password);
+      return res.status(200).json({ token });
     } catch (error) {
       if (error instanceof Error) {
-        res.status(500).send(error.message);
+        return res.status(500).send(error.message);
       } else {
-        res.status(500).send('An unknown error occurred');
+        return res.status(500).send('An unknown error occurred');
       }
     }
   }
