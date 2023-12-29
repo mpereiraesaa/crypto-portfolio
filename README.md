@@ -34,7 +34,7 @@ This command builds the Docker images and starts the services defined in the `do
 
 ### Swagger docs
 
-You can visit UI API documentation browsing the following endpoint `http://localhost:3000/api-docs/`
+You can visit swagger UI documentation for the API opening the following endpoint: http://localhost:3000/api-docs/ in your browser.
 
 ### User Management
 1. **User Onboarding (Registration):**
